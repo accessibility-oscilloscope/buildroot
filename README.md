@@ -8,3 +8,9 @@ git submodule update
 ```
 
 using LTS buildroot tag 2021.02.6
+
+## building
+
+```sh
+make O=`pwd` -C buildroot/
+```
