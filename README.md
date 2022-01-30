@@ -12,7 +12,7 @@ using LTS buildroot tag 2021.02.6
 ## building
 
 ```sh
-make O=`pwd` -C buildroot/
+make O=$(pwd) -C buildroot/
 ```
 
 builds bootable image `images/sdcard.img`
@@ -21,3 +21,8 @@ builds bootable image `images/sdcard.img`
 dd if=images/sdcard.img of=[BLOCK DEVICE] status=progress bs=1M
 ```
 
+## configuring
+
+```sh
+MENUCONFIG_COLOR=mono BR2_EXTERNAL=../oscope make menuconfig
+```
