@@ -1,3 +1,11 @@
 *.br2*
-buildroot/
+..config.*
+.config.*
 Makefile
+build/
+buildroot/
+graphs/
+host/
+images/
+staging
+target/
