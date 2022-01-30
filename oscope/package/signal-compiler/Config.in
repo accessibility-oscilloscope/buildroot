@@ -1,0 +1,4 @@
+config BR2_PACKAGE_SIGNAL_COMPILER
+    bool "signal_compiler"
+    help
+      compiler signal format to PGM.
