@@ -10,9 +10,13 @@ using LTS buildroot tag 2021.02.6
 
 ## building
 
-make any configuration changes then save,
+make any buildroot configuration changes then save,
 ```sh
 MENUCONFIG_COLOR=mono BR2_EXTERNAL=../oscope make menuconfig
+```
+
+```sh
+MENUCONFIG_COLOR=mono make linux-menuconfig
 ```
 
 build,

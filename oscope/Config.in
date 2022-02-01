@@ -1,1 +1,2 @@
 source "$BR2_EXTERNAL_OSCOPE_PKGS_PATH/package/signal-compiler/Config.in"
+source "$BR2_EXTERNAL_OSCOPE_PKGS_PATH/package/oscilloscope-dump/Config.in"
