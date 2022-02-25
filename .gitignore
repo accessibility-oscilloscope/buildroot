@@ -2,7 +2,7 @@
 ..config.*
 .config.*
 Makefile
-build/
+output/
 buildroot/
 graphs/
 host/
