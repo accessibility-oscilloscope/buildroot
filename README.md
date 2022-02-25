@@ -31,4 +31,4 @@ builds bootable image `images/sdcard.img`
 ```sh
 dd if=images/sdcard.img of=[BLOCK DEVICE] status=progress bs=1M
 ```
-Warning WSL usually doesn't support the above unless you've got a special usb to WSL forwarder
+> Note: WSL usually doesn't support the above unless you've got a special usb to WSL forwarder
