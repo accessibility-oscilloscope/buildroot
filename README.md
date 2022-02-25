@@ -40,8 +40,8 @@ on the host system, the minimum build requirements:
 for a given board $DEFCONFIG (see `supported boards`)
 
 ```sh
-. env.sh
-make --directory=$(pwd)/buildroot O=$(pwd)/$DEFCONFIG_output $DEFCONFIG_defconfig
+./env.sh
+make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output ${DEFCONFIG}_defconfig
 ```
 
 this generates appropriate configurations for your system.
@@ -50,10 +50,10 @@ see `configuring` if you'd like to audit the configuration.
 to build,
 
 ```sh
-make --directory=$(pwd)/buildroot O=$(pwd)/$DEFCONFIG_output
+make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output
 ```
 
-for hardware targets, builds bootable image `$DEFCONFIG_output/images/sdcard.img`.
+for hardware targets, builds bootable image `${DEFCONFIG}_output/images/sdcard.img`.
 
 ## emulation
 build `$DEFCONFIG=qemu` and install `qemu-system-arm`.
@@ -67,10 +67,10 @@ requries `libncurses-dev`.
 
 ### buildroot
 ```sh
-. env.sh
-make --directory=$(pwd)/buildroot O=$(pwd)/$DEFCONFIG_output menuconfig
+./env.sh
+make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output menuconfig
 ...  # change some parameters, save
-make --directory=$(pwd)/buildroot O=$(pwd)/$DEFCONFIG_output # rebuild
+make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output # rebuild
 make savedefconfig # save those changes, updates corresponding configs `accessilbility-oscilloscope/config/`.
 ```
 
