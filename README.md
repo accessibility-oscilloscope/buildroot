@@ -6,17 +6,21 @@ build using buildroot
 git submodule update --init
 ```
 
-using LTS buildroot tag 2021.02.6
+using LTS buildroot tag 2021.02.6.
 
 ## building
 
-make any buildroot configuration changes then save,
 ```sh
-MENUCONFIG_COLOR=mono BR2_EXTERNAL=../oscope make menuconfig
+export BR2_EXTERNAL=../oscope
+make --directory=$(pwd)/buildroot O=$(pwd)/output rpi3_defconfig
 ```
 
+## configuring
 ```sh
-MENUCONFIG_COLOR=mono make linux-menuconfig
+export MENUCONFIG_COLOR=mono # optional if ncurses colors illegible
+make menuconfig
+# edit some parameters
+make savedefconfig
 ```
 
 build,
