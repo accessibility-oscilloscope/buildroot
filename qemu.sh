@@ -1,1 +1,0 @@
-qemu-system-arm -M versatilepb -kernel qemu_output/images/zImage -dtb qemu_output/images/versatile-pb.dtb -drive file=qemu_output/images/rootfs.ext2,if=scsi -append root=/dev/sda console=ttyAMA0,115200 -nographic

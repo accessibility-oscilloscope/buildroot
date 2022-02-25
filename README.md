@@ -1,24 +1,34 @@
-# kernel config
+# buildroot
 
-build using buildroot LTS tag 2021.02.6.
+get the buildroot submodule,
 
 ```sh
 git submodule update --init
 ```
 
+built using buildroot LTS tag 2021.02.6.
+
+## supported boards
+supported $DEFCONFIG
+- rpi3 (porting)
+- rpi4 (untested)
+- qemu (porting)
+
 ## system packages
+on the host system, the minimum build requirements:
+
 - which
 - sed
-- make (version 3.81 or any later)
+- make >=3.81
 - binutils
 - build-essential (only for Debian based systems)
-- gcc (version 4.8 or any later)
-- g++ (version 4.8 or any later)
+- gcc >=4.8 
+- g++ >=4.8
 - bash
 - patch
 - gzip
 - bzip2
-- perl (version 5.8.7 or any later)
+- perl >=5.8.7
 - tar
 - cpio
 - unzip
@@ -27,35 +37,45 @@ git submodule update --init
 - bc 
 
 ## building
-supported $DEFCONFIG
-- rpi3 (porting)
-- rpi4 (untested)
-- qemu (porting)
+for a given board $DEFCONFIG (see `supported boards`)
 
 ```sh
-export BR2_EXTERNAL=../accessibility-oscilloscope
-make --directory=$(pwd)/buildroot O=$(pwd)/output $DEFCONFIG_defconfig
+. env.sh
+make --directory=$(pwd)/buildroot O=$(pwd)/$DEFCONFIG_output $DEFCONFIG_defconfig
 ```
 
-see `configuring` if you'd like to audit configuration settings.
+this generates appropriate configurations for your system.
+see `configuring` if you'd like to audit the configuration.
+
 to build,
 
 ```sh
 make --directory=$(pwd)/buildroot O=$(pwd)/$DEFCONFIG_output
 ```
 
-builds bootable image `output/images/sdcard.img`
+for hardware targets, builds bootable image `$DEFCONFIG_output/images/sdcard.img`.
+
+## emulation
+build `$DEFCONFIG=qemu` and install `qemu-system-arm`.
 
 ```sh
-dd if=output/images/sdcard.img of=[BLOCK DEVICE] status=progress bs=1M
+./emu.sh qemu_output/images/rootfs.ext2
 ```
 
-## configuring
+## configuring, development
 requries `libncurses-dev`.
 
+### buildroot
 ```sh
-export MENUCONFIG_COLOR=mono # optional, if ncurses colors illegible
-make menuconfig
-# edit some parameters
-make savedefconfig
+. env.sh
+make --directory=$(pwd)/buildroot O=$(pwd)/$DEFCONFIG_output menuconfig
+...  # change some parameters, save
+make --directory=$(pwd)/buildroot O=$(pwd)/$DEFCONFIG_output # rebuild
+make savedefconfig # save those changes, updates corresponding configs `accessilbility-oscilloscope/config/`.
 ```
+
+### kernel
+TODO
+
+### multi-board development
+just change the $DEFCONFIG to the current board being developed.
