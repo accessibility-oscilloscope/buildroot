@@ -22,7 +22,7 @@ on the host system, the minimum build requirements:
 - make >=3.81
 - binutils
 - build-essential (only for Debian based systems)
-- gcc >=4.8 
+- gcc >=4.8
 - g++ >=4.8
 - bash
 - patch
@@ -34,7 +34,7 @@ on the host system, the minimum build requirements:
 - unzip
 - rsync
 - file (must be in /usr/bin/file)
-- bc 
+- bc
 
 ## building
 for a given board $DEFCONFIG (see `supported boards`)
