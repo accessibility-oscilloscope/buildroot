@@ -1,11 +1,2 @@
-*.br2*
-..config.*
-.config.*
-Makefile
-output/
+*output/
 buildroot/
-graphs/
-host/
-images/
-staging
-target/
