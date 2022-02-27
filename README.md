@@ -40,7 +40,7 @@ on the host system, the minimum build requirements:
 for a given board $DEFCONFIG (see `supported boards`)
 
 ```sh
-./env.sh
+. env.sh
 make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output ${DEFCONFIG}_defconfig
 ```
 
@@ -67,7 +67,7 @@ requries `libncurses-dev`.
 
 ### buildroot
 ```sh
-./env.sh
+. env.sh
 make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output menuconfig
 ...  # change some parameters, save
 make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output # rebuild

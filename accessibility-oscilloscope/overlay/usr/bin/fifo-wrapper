@@ -12,6 +12,6 @@
 mkfifo "$2" # by convention, reader makes pipe
 
 while true; do
-  "$1" < "$2" > "$3"
+  eval "$1" < "$2" > "$3"
   [ $? -eq 0 ] || break
 done
