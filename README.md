@@ -59,7 +59,7 @@ for hardware targets, builds bootable image `${DEFCONFIG}_output/images/sdcard.i
 build `$DEFCONFIG=qemu` and install `qemu-system-arm`.
 
 ```sh
-./emu.sh qemu_output/images/rootfs.ext2
+./emu.sh qemu_output/
 ```
 
 ## configuring, development
