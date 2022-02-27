@@ -1,0 +1,3 @@
+#!/bin/sh
+
+fifo-wrapper "signal-compiler /dev/stdin /dev/stdout" /run/sc-in /run/sc-out &
