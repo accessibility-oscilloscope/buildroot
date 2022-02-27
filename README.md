@@ -9,7 +9,7 @@ git submodule update --init
 built using buildroot LTS tag 2021.02.6.
 
 ## supported boards
-supported $DEFCONFIG
+
 - rpi3 (porting)
 - rpi4 (untested)
 - qemu (porting)
@@ -37,32 +37,31 @@ on the host system, the minimum build requirements:
 - bc
 
 ## building
-for a given board $DEFCONFIG (see `supported boards`)
+set `DEFCONFIG` to one of the [supported boards](#supported-boards), `DEFCONFIG=rpi3` for example.
+first, configure
 
 ```sh
 . env.sh
 make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output ${DEFCONFIG}_defconfig
 ```
 
-this generates appropriate configurations for your system.
-see `configuring` if you'd like to audit the configuration.
-
-to build,
+see [configuring](#configuring) if you'd like to audit the configuration.
+then build,
 
 ```sh
 make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output
 ```
 
-for hardware targets, builds bootable image `${DEFCONFIG}_output/images/sdcard.img`.
+for hardware targets, this builds bootable image `${DEFCONFIG}_output/images/sdcard.img`.
 
 ## emulation
-build `$DEFCONFIG=qemu` and install `qemu-system-arm`.
+build `DEFCONFIG=qemu` and install `qemu-system-arm`.
 
 ```sh
 ./emu.sh qemu_output/
 ```
 
-## configuring, development
+## configuring
 requries `libncurses-dev`.
 
 ### buildroot
@@ -71,7 +70,7 @@ requries `libncurses-dev`.
 make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output menuconfig
 ...  # change some parameters, save
 make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output # rebuild
-make savedefconfig # save those changes, updates corresponding configs `accessilbility-oscilloscope/config/`.
+make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output savedefconfig # save those changes, updates corresponding configs `accessilbility-oscilloscope/config/`.
 ```
 
 ### kernel
