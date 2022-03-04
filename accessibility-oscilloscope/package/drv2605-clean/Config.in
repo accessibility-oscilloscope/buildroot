@@ -1,0 +1,4 @@
+config BR2_PACKAGE_DRV2506_CLEAN
+	bool "drv2605-clean"
+	help
+	  driver and inverface for DRV2605

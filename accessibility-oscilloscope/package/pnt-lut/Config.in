@@ -1,0 +1,4 @@
+config BR2_PACKAGE_PNT_LUT
+	bool "pnt-lut"
+	help
+	  glue to look up point in LUT with fork() + shared mem
