@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-DRV2605_CLEAN_VERSION = v0.3
+DRV2605_CLEAN_VERSION = v0.4
 DRV2605_CLEAN_SOURCE = $(DRV2605_CLEAN_VERSION).tar.gz
 DRV2605_CLEAN_SITE = https://github.com/accessibility-oscilloscope/drv2605-clean/archive/refs/tags/
 
