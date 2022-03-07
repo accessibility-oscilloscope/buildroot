@@ -74,7 +74,12 @@ make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output savedefconfig # s
 ```
 
 ### kernel
-TODO
+```sh
+. env.sh
+make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output linux-menuconfig
+make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output linux-savedefconfig
+make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output linux-update-defconfig
+```
 
 ### multi-board development
 just change the $DEFCONFIG to the current board being developed.
