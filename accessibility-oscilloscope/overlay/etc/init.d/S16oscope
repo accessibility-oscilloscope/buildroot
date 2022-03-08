@@ -1,5 +1,9 @@
 #!/bin/sh
 
+enable-haptic-gpio
+
 fifo-wrapper "signal-compiler /dev/stdin /dev/stdout" /run/sc-in /run/sc-out &
 
 pnt-lut /run/pnt-lut-pgm /run/pnt-lut-xy &
+
+haptic-driver /run/haptic-driver-in &
