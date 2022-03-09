@@ -2,10 +2,12 @@
 
 enable-haptic-gpio
 
-fifo-wrapper "signal-compiler /dev/stdin /dev/stdout" /run/sc-in /run/sc-out &
+haptic-driver /run/haptic-driver-in &
 
 pnt-lut /run/pnt-lut-pgm /run/pnt-lut-xy /run/haptic-driver-in &
 
-haptic-driver /run/haptic-driver-in &
+fifo-wrapper "signal-compiler /dev/stdin /dev/stdout" /run/sc-in /run/pnt-lut-pgm &
 
-ascii-conv /run/ascii-conv-in &
+ascii-conv /run/ascii-conv-in /run/pnt-lut-xy &
+
+wacom-xy > /run/ascii-conv-in &
