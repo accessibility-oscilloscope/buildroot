@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-PNT_LUT_VERSION = v0.0.4
+PNT_LUT_VERSION = v0.0.5
 PNT_LUT_SOURCE = $(PNT_LUT_VERSION).tar.gz
 PNT_LUT_SITE = https://github.com/accessibility-oscilloscope/pnt-lut/archive/refs/tags
 
