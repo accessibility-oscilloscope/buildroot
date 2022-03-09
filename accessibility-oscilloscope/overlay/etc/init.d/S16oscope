@@ -4,6 +4,8 @@ enable-haptic-gpio
 
 fifo-wrapper "signal-compiler /dev/stdin /dev/stdout" /run/sc-in /run/sc-out &
 
+sigproc -i /run/sp-in -o /run/sc-in &
+
 pnt-lut /run/pnt-lut-pgm /run/pnt-lut-xy /run/haptic-driver-in &
 
 haptic-driver /run/haptic-driver-in &

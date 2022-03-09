@@ -1,4 +1,5 @@
-source "$BR2_EXTERNAL_OSCOPE_PKGS_PATH/package/signal-compiler/Config.in"
-source "$BR2_EXTERNAL_OSCOPE_PKGS_PATH/package/oscilloscope-dump/Config.in"
 source "$BR2_EXTERNAL_OSCOPE_PKGS_PATH/package/drv2605-clean/Config.in"
+source "$BR2_EXTERNAL_OSCOPE_PKGS_PATH/package/oscilloscope-dump/Config.in"
 source "$BR2_EXTERNAL_OSCOPE_PKGS_PATH/package/pnt-lut/Config.in"
+source "$BR2_EXTERNAL_OSCOPE_PKGS_PATH/package/signal-compiler/Config.in"
+source "$BR2_EXTERNAL_OSCOPE_PKGS_PATH/package/sigproc/Config.in"
