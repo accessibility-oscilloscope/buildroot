@@ -7,3 +7,5 @@ fifo-wrapper "signal-compiler /dev/stdin /dev/stdout" /run/sc-in /run/sc-out &
 pnt-lut /run/pnt-lut-pgm /run/pnt-lut-xy /run/haptic-driver-in &
 
 haptic-driver /run/haptic-driver-in &
+
+ascii-conv /run/ascii-conv-in &
