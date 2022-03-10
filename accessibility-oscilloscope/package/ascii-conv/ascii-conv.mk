@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-ASCII_CONV_VERSION = v0.0.1
+ASCII_CONV_VERSION = v0.0.2
 ASCII_CONV_SOURCE = $(ASCII_CONV_VERSION).tar.gz
 ASCII_CONV_SITE = https://github.com/accessibility-oscilloscope/ascii-conv/archive/refs/tags
 
