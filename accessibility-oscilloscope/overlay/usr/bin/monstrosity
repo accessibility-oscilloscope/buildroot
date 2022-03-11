@@ -1,0 +1,32 @@
+#!/usr/bin/python3
+
+import sys
+import re
+
+x: int = 0
+y: int = 0
+
+# TODO:
+# i take no credit for this
+
+if __name__ == "__main__":
+    for line in sys.stdin:
+        re_x = re.compile(r'ABS_X\s+(\d+)')
+        re_y = re.compile(r'ABS_Y\s+(\d+)')
+
+        updates: bool = False
+
+        if xs := re_x.search(line):
+            x = int(xs.group(1))
+            updates = True
+        if ys := re_y.search(line):
+            y = int(ys.group(1))
+            updates = True
+
+        if updates:
+            if x == 0 or y == 0:
+                print("0\n0")
+            else:
+                print(f"{x}")
+                print(f"{y}")
+            sys.stdout.flush()
