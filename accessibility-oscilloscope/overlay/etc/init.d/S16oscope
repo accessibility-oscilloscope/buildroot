@@ -1,9 +1,35 @@
 #!/bin/sh
 
+ASCII_FIFO=/run/ascii-conv-in
+XY_FIFO=/run/pnt-lut-xy
+PGM_FIFO=/run/pnt-lut-pgm
+HAPTIC_FIFO=/run/haptic-in
+SIGCOMP_FIFO=/run/sigcomp-in
+SIGPROC_FIFO=/run/sigproc-in
+OSCOPE_FIFO=/run/oscope-in
+
+# make fifos. linearly
+mkfifo $ASCII_FIFO
+mkfifo $XY_FIFO
+mkfifo $PGM_FIFO
+mkfifo $HAPTIC_FIFO
+mkfifo $SIGCOMP_FIFO
+mkfifo $SIGPROC_FIFO
+mkfifo $OSCOPE_FIFO
+
 enable-haptic-gpio
 
-fifo-wrapper "signal-compiler /dev/stdin /dev/stdout" /run/sc-in /run/sc-out &
+# start programs in background
 
-pnt-lut /run/pnt-lut-pgm /run/pnt-lut-xy /run/haptic-driver-in &
+#fifo-wrapper "signal-compiler /dev/stdin /dev/stdout" /run/sc-in /run/pnt-lut-pgm &
 
-haptic-driver /run/haptic-driver-in &
+# "right side" of tree
+haptic-driver $HAPTIC_FIFO &
+
+pnt-lut $PGM_FIFO $XY_FIFO $HAPTIC_FIFO &
+
+ascii-conv $ASCII_FIFO $XY_FIFO &
+
+sleep 10
+
+wacom-xy > $ASCII_FIFO &

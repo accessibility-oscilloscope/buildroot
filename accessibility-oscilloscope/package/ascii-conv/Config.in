@@ -1,0 +1,4 @@
+config BR2_PACKAGE_ASCII_CONV
+	bool "ascii-conv"
+	help
+	  converts whitespace-separated ascii representations of integers into raw integers
