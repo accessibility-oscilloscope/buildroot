@@ -1,12 +1,24 @@
 #!/bin/sh
 
+# make fifos. linearly
+mkfifo /run/ascii-conv-in
+mkfifo /run/pnt-lut-xy
+mkfifo /run/pnt-lut-pgm
+mkfifo /run/haptic-in
+mkfifo /run/sigcomp-in
+mkfifo /run/sigproc-in
+mkfifo /run/oscope-in
+
 enable-haptic-gpio
 
+# start programs in background
+
+#fifo-wrapper "signal-compiler /dev/stdin /dev/stdout" /run/sc-in /run/pnt-lut-pgm &
+
+# "right side" of tree
 haptic-driver /run/haptic-driver-in &
 
-pnt-lut /run/pnt-lut-pgm /run/pnt-lut-xy /run/haptic-driver-in &
-
-fifo-wrapper "signal-compiler /dev/stdin /dev/stdout" /run/sc-in /run/pnt-lut-pgm &
+pnt-lut /run/pnt-lut-pgm /run/pnt-lut-xy /run/haptic-in &
 
 ascii-conv /run/ascii-conv-in /run/pnt-lut-xy &
 
