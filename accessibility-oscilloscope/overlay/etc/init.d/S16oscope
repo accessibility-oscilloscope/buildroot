@@ -1,13 +1,13 @@
 #!/bin/sh
 
 # make fifos. linearly
-mkfifo ascii-conv-in
-mkfifo pnt-lut-xy
-mkfifo pnt-lut-pgm
-mkfifo haptic-in
-mkfifo sigcomp-in
-mkfifo sigproc-in
-mkfifo oscope-in
+mkfifo /run/ascii-conv-in
+mkfifo /run/pnt-lut-xy
+mkfifo /run/pnt-lut-pgm
+mkfifo /run/haptic-in
+mkfifo /run/sigcomp-in
+mkfifo /run/sigproc-in
+mkfifo /run/oscope-in
 
 enable-haptic-gpio
 
