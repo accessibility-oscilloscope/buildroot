@@ -3,16 +3,16 @@
 get the buildroot submodule,
 
 ```sh
-git submodule update --init
+$ git submodule update --init
 ```
 
 built using buildroot LTS tag 2021.02.6.
 
 ## supported boards
 
-- rpi3 (porting)
-- rpi4 (untested)
-- qemu (porting)
+- rpi4 (primary)
+- rpi3 (secondary)
+- qemu
 
 ## system packages
 on the host system, the minimum build requirements:
@@ -40,20 +40,20 @@ on the host system, the minimum build requirements:
 set `DEFCONFIG` to one of the [supported boards](#supported-boards),
 
 ```sh
-export DEFCONFIG=rpi4
+$ export DEFCONFIG=rpi4
 ```
 
 for example.  first, configure
 
 ```sh
-./build.sh ${DEFCONFIG}_defconfig
+$ ./build.sh ${DEFCONFIG}_defconfig
 ```
 
 see [configuring](#configuring) if you'd like to audit the configuration.
 then build,
 
 ```sh
-./build.sh
+$ ./build.sh
 ```
 
 for hardware targets, this builds bootable image `${DEFCONFIG}_output/images/sdcard.img`.
@@ -62,7 +62,7 @@ for hardware targets, this builds bootable image `${DEFCONFIG}_output/images/sdc
 build with `DEFCONFIG=qemu` and install `qemu-system-arm`.
 
 ```sh
-./emu.sh qemu_output/
+$ ./emu.sh qemu_output/
 ```
 
 ## configuring
@@ -70,17 +70,17 @@ requries `libncurses-dev`.
 
 ### buildroot
 ```sh
-./build.sh menuconfig
+$ ./build.sh menuconfig
 ...  # change some parameters, save
-./bulid.sh # rebuild, test things
-./build.sh savedefconfig # save those changes, updates corresponding configs `accessilbility-oscilloscope/config/`.
+$ ./bulid.sh # rebuild, test things
+$ ./build.sh savedefconfig # save those changes, updates corresponding configs `accessilbility-oscilloscope/config/`.
 ```
 
 ### kernel
 ```sh
-./build.sh linux-menuconfig
-./build.sh linux-savedefconfig
-./build.sh linux-update-defconfig
+$ ./build.sh linux-menuconfig
+$ ./build.sh linux-savedefconfig
+$ ./build.sh linux-update-defconfig
 ```
 
 ### multi-board development
