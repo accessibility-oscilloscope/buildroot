@@ -37,25 +37,29 @@ on the host system, the minimum build requirements:
 - bc
 
 ## building
-set `DEFCONFIG` to one of the [supported boards](#supported-boards), `DEFCONFIG=rpi3` for example.
-first, configure
+set `DEFCONFIG` to one of the [supported boards](#supported-boards),
 
 ```sh
-. env.sh
-make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output ${DEFCONFIG}_defconfig
+export DEFCONFIG=rpi4
+```
+
+for example.  first, configure
+
+```sh
+./build.sh ${DEFCONFIG}_defconfig
 ```
 
 see [configuring](#configuring) if you'd like to audit the configuration.
 then build,
 
 ```sh
-make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output
+./build.sh
 ```
 
 for hardware targets, this builds bootable image `${DEFCONFIG}_output/images/sdcard.img`.
 
 ## emulation
-build `DEFCONFIG=qemu` and install `qemu-system-arm`.
+build with `DEFCONFIG=qemu` and install `qemu-system-arm`.
 
 ```sh
 ./emu.sh qemu_output/
@@ -66,19 +70,17 @@ requries `libncurses-dev`.
 
 ### buildroot
 ```sh
-. env.sh
-make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output menuconfig
+./build.sh menuconfig
 ...  # change some parameters, save
-make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output # rebuild
-make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output savedefconfig # save those changes, updates corresponding configs `accessilbility-oscilloscope/config/`.
+./bulid.sh # rebuild, test things
+./build.sh savedefconfig # save those changes, updates corresponding configs `accessilbility-oscilloscope/config/`.
 ```
 
 ### kernel
 ```sh
-. env.sh
-make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output linux-menuconfig
-make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output linux-savedefconfig
-make --directory=$(pwd)/buildroot O=$(pwd)/${DEFCONFIG}_output linux-update-defconfig
+./build.sh linux-menuconfig
+./build.sh linux-savedefconfig
+./build.sh linux-update-defconfig
 ```
 
 ### multi-board development
