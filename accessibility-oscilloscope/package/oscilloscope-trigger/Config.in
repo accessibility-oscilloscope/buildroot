@@ -1,4 +1,4 @@
 config BR2_PACKAGE_OSCILLOSCOPE_TRIGGER
 	bool "oscilloscope-trigger"
 	help
-	  loads oscilloscope-trigger pthon file
+	  loads oscilloscope-trigger python file
