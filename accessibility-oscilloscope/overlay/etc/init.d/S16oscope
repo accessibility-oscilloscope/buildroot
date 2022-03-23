@@ -21,7 +21,7 @@ enable-haptic-gpio
 
 # start programs in background
 
-#fifo-wrapper "signal-compiler /dev/stdin /dev/stdout" /run/sc-in /run/pnt-lut-pgm &
+pipe-wrapper "signal-compiler /dev/stdin /dev/stdout" /run/sigcomp-in /run/pnt-lut-pgm &
 
 # "right side" of tree
 haptic-driver $HAPTIC_FIFO &
