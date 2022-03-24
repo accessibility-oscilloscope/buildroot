@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-SIGNAL_COMPILER_VERSION = v1.3
+SIGNAL_COMPILER_VERSION = v1.4-testing
 SIGNAL_COMPILER_SOURCE = $(SIGNAL_COMPILER_VERSION).tar.gz
 SIGNAL_COMPILER_SITE = https://github.com/accessibility-oscilloscope/signal-compiler/archive/refs/tags
 

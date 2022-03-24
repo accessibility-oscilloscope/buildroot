@@ -1,3 +1,4 @@
+
 #!/bin/sh
 
 ASCII_FIFO=/run/ascii-conv-in
@@ -23,9 +24,9 @@ enable-haptic-gpio
 
 # "left side" of tree
 
-pipe-wrapper "trigger-data -i /dev/stdin -o /dev/stdout" $OSCOPE_FIFO $SIGPROC_FIFO &
+pipe-wrapper "trigger-data -i /dev/stdin -o /dev/stdout -v" $OSCOPE_FIFO $SIGPROC_FIFO &
 
-pipe-wrapper "sigproc -i /dev/stdin -o /dev/stdout" $SIGPROC_FIFO $SIGCOMP_FIFO &
+pipe-wrapper "sigproc -i /dev/stdin -o /dev/stdout -v" $SIGPROC_FIFO $SIGCOMP_FIFO &
 
 pipe-wrapper "signal-compiler /dev/stdin /dev/stdout" $SIGCOMP_FIFO $PGM_FIFO &
 
