@@ -1,10 +1,11 @@
+
 ################################################################################
 #
 # sigproc
 #
 ################################################################################
 
-SIGPROC_VERSION = v0.2
+SIGPROC_VERSION = v0.3
 SIGPROC_SOURCE = $(SIGPROC_VERSION).tar.gz
 SIGPROC_SITE = https://github.com/accessibility-oscilloscope/signal-processing/archive/refs/tags
 
