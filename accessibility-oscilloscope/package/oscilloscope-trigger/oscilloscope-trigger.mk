@@ -8,12 +8,11 @@ OSCILLOSCOPE_TRIGGER_VERSION = v0.0.1
 OSCILLOSCOPE_TRIGGER_SOURCE = $(OSCILLOSCOPE_TRIGGER_VERSION).tar.gz
 OSCILLOSCOPE_TRIGGER_SITE = https://github.com/accessibility-oscilloscope/oscilloscope-trigger/archive/refs/tags
 
-define OSCILLOSCOPE_TRIGGER_BUILD_CMDS
-	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D) oscilloscope-trigger
-endef
+OSCILLOSCOPE_TRIGGER_BIN = oscilloscope-trigger
 
 define OSCILLOSCOPE_TRIGGER_INSTALL_TARGET_CMDS
-	$(INSTALL) -D -m 0755 $(@D)/oscilloscope-trigger $(TARGET_DIR)/usr/bin/oscilloscope-trigger
+	$(INSTALL) -D -m 0755 $(@D)/main.py $(TARGET_DIR)/usr/bin/$(OSCILLOSCOPE_TRIGGER_BIN)-$(OSCILLOSCOPE_TRIGGER_VERSION)
+	ln -f $(TARGET_DIR)/usr/bin/$(OSCILLOSCOPE_TRIGGER_BIN)-$(OSCILLOSCOPE_TRIGGER_VERSION) $(TARGET_DIR)/usr/bin/$(OSCILLOSCOPE_TRIGGER_BIN)
 endef
 
 $(eval $(generic-package))

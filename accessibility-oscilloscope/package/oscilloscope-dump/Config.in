@@ -1,4 +1,0 @@
-config BR2_PACKAGE_OSCILLOSCOPE_DUMP
-	bool "oscilloscope_dump"
-	help
-	  dump serial haasoscope samples.

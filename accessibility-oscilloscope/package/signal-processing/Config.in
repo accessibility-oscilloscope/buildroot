@@ -1,4 +1,0 @@
-config BR2_PACKAGE_SIGNAL_PROCESSING
-	bool "signal-processing"
-	help
-	  loads signal processing python files
