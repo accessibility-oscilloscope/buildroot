@@ -1,3 +1,4 @@
 #!/bin/sh
 
-libinput record /dev/input/event1 | awk '/BTN_[0-3]\s*0/ { print substr($11,5,1) }'
+DEVICE=$(libinput list-devices | grep "Wacom Intuos BT M Pad" -A1 | awk '/Kernel:/ {print $2}')
+libinput record "$DEVICE" | busybox awk '/EV_KEY \/ BTN_/ { print $12 }'
