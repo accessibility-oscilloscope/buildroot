@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ -z ${DEFCONFIG+x} ]; then
-    echo "DEFCONFIG unset! use `export DEFCONFIG=BOARD`. see README"
+    echo "DEFCONFIG unset! use \`export DEFCONFIG=BOARD\`. see README"
     exit 1
 fi
 
