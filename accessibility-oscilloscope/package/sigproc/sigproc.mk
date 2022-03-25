@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-SIGPROC_VERSION = v0.4
+SIGPROC_VERSION = v0.5-beta
 SIGPROC_SOURCE = $(SIGPROC_VERSION).tar.gz
 SIGPROC_SITE = https://github.com/accessibility-oscilloscope/signal-processing/archive/refs/tags
 

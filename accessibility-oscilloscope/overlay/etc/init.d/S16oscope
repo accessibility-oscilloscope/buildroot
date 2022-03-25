@@ -23,23 +23,13 @@ enable-haptic-gpio
 # start programs in background
 
 # "left side" of tree
-
 pipe-wrapper "trigger-data -i /dev/stdin -o /dev/stdout -v" $OSCOPE_FIFO $SIGPROC_FIFO &
-
 pipe-wrapper "sigproc -i /dev/stdin -o /dev/stdout -v" $SIGPROC_FIFO $SIGCOMP_FIFO &
-
 pipe-wrapper "signal-compiler /dev/stdin /dev/stdout" $SIGCOMP_FIFO $PGM_FIFO &
-
 wacom-btn > $OSCOPE_FIFO &
 
 # "right side" of tree
 haptic-driver $HAPTIC_FIFO &
-
 pnt-lut $PGM_FIFO $XY_FIFO $HAPTIC_FIFO &
-
 ascii-conv $ASCII_FIFO $XY_FIFO &
-
-
-pnt-lut $PGM_FIFO $XY_FIFO $HAPTIC_FIFO &
-
 wacom-xy > $ASCII_FIFO &
