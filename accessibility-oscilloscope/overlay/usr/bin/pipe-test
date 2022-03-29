@@ -1,14 +1,10 @@
 #!/usr/bin/python3 -u
 import sys
 import re
-# import os
 
 re_y = re.compile(r'BTN_[0-3]\s+(\d+)')
 
 if __name__ == "__main__":
-    # input_fifo = os.open("test", os.O_RDONLY)
-    # result = os.read(input_fifo, 512)
-    # os.close(input_fifo)
     for line in sys.stdin:
         reg = re_y.search(str(line))
         if reg:
