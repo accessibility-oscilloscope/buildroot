@@ -1,5 +1,5 @@
 #!/bin/sh
 
 DEVICE=/dev/input/event1
-libinput record "$DEVICE" | busybox awk '/EV_KEY \/ BTN_/ { print $12 }'
-
+# libinput record "$DEVICE" | busybox awk '/EV_KEY \/ BTN_/ { print $12 }'
+libinput record "$DEVICE" | awk '/BTN_[0-3]\s*0/ { print substr($11,5,1) }'
