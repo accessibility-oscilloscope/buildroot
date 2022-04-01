@@ -4,17 +4,17 @@ killall pnt-lut &>/dev/null || true
 
 mkfifo /tmp/pgm
 mkfifo /tmp/pnt
-mkfifo /tmp/haptic
+touch /tmp/haptic
 
 echo "fifo init"
 
-pnt-lut /tmp/pgm /tmp/pnt /tmp/haptic &
+pnt-lut /tmp/pgm /tmp/pnt /dev/stdout | od -w2 -x >/tmp/haptic &
 
 cat /usr/share/data/linear.pgm >/tmp/pgm
-echo -ne "\x00\x00\x00\x00\x00\x00\x00\x00" >/tmp/pnt
+echo "00 10 00 00 00 00 00 00" | xxd -r -p >/tmp/pnt
 
 diff /tmp/haptic /usr/share/data/onepoint.haptic
 
 rm /tmp/pgm
 rm /tmp/pnt
-rm /tmp/haptic
+#rm /tmp/haptic
