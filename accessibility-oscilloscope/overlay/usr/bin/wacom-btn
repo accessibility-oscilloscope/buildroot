@@ -1,3 +1,4 @@
 #!/bin/sh
 
-libinput record /dev/input/event1 | awk '/BTN_[0-3]\s*0/ { print substr($11,5,1) }'
+DEVICE=/dev/input/event1
+libinput record "$DEVICE" | pipe-test

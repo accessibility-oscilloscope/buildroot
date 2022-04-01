@@ -4,12 +4,15 @@
 #
 ################################################################################
 
-SIGPROC_VERSION = stub-v0.1
+SIGPROC_VERSION = v0.6
 SIGPROC_SOURCE = $(SIGPROC_VERSION).tar.gz
 SIGPROC_SITE = https://github.com/accessibility-oscilloscope/signal-processing/archive/refs/tags
 
+SIGPROC_BIN = sigproc
+
 define SIGPROC_INSTALL_TARGET_CMDS
-	$(INSTALL) -D -m 0755 $(@D)/stub.py $(TARGET_DIR)/usr/bin/sigproc
+	$(INSTALL) -D -m 0755 $(@D)/main.py $(TARGET_DIR)/usr/bin/$(SIGPROC_BIN)-$(SIGPROC_VERSION)
+	ln -f $(TARGET_DIR)/usr/bin/$(SIGPROC_BIN)-$(SIGPROC_VERSION) $(TARGET_DIR)/usr/bin/$(SIGPROC_BIN)
 endef
 
 $(eval $(generic-package))
