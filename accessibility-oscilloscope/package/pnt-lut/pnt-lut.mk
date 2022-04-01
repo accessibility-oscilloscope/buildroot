@@ -12,10 +12,12 @@ PNT_LUT_BIN = pnt-lut
 
 define PNT_LUT_BUILD_CMDS
 	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D) $(PNT_LUT_BIN)
+	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D) test
 endef
 
 define PNT_LUT_INSTALL_TARGET_CMDS
 	$(INSTALL) -D -m 0755 $(@D)/$(PNT_LUT_BIN) $(TARGET_DIR)/usr/bin/$(PNT_LUT_BIN)-$(PNT_LUT_VERSION)
+	$(INSTALL) -D -m 0755 $(@D)/test $(TARGET_DIR)/usr/bin/rand-wacom-xy
 	ln -f $(TARGET_DIR)/usr/bin/$(PNT_LUT_BIN)-$(PNT_LUT_VERSION) $(TARGET_DIR)/usr/bin/$(PNT_LUT_BIN)
 endef
 
