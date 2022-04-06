@@ -1,0 +1,12 @@
+#!/bin/sh
+
+for ii in /usr/share/test.d/S??*; do
+    case "$ii" in
+    *.sh)
+        time . $ii
+        ;;
+    *)
+        time $ii start
+        ;;
+    esac
+done
