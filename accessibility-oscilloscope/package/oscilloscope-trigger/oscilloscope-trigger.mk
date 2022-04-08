@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-OSCILLOSCOPE_TRIGGER_VERSION = v0.7
+OSCILLOSCOPE_TRIGGER_VERSION = v0.6
 OSCILLOSCOPE_TRIGGER_SOURCE = $(OSCILLOSCOPE_TRIGGER_VERSION).tar.gz
 OSCILLOSCOPE_TRIGGER_SITE = https://github.com/accessibility-oscilloscope/oscilloscope-trigger/archive/refs/tags
 
